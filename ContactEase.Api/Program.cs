@@ -18,6 +18,11 @@ var app = builder.Build();
         await initialiser.SeedAsync();
     }
 
+    app.UseCors(builder => builder
+    .WithOrigins("http://localhost")
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
     app.MapControllers();
