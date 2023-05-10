@@ -32,6 +32,6 @@
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v1
         with:
-          app-name: "aspnetdeploy"
+          app-name: "contacteaseapi"
           slot-name: "production"
           package: ${{env.DOTNET_ROOT}}/myapp
