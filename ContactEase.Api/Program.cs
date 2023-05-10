@@ -19,9 +19,12 @@ var app = builder.Build();
     }
 
     app.UseCors(builder => builder
-    .WithOrigins("http://localhost")
-    .AllowAnyMethod()
-    .AllowAnyHeader());
+        .WithOrigins(
+            "http://localhost:3000", 
+            "https://localhost:3000")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials());
 
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
