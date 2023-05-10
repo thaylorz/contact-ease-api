@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactEase.Api", "ContactEase.Api\ContactEase.Api.csproj", "{AD5D0C62-07BC-45E0-ACAA-8C829B9C6BCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactEase.Domain", "ContactEase.Domain\ContactEase.Domain.csproj", "{6AF97A1E-BDCC-4FBF-B01B-7C06F61C0886}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactEase.Application", "ContactEase.Application\ContactEase.Application.csproj", "{0E776B00-0667-46C1-99F8-7197D53DBCA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactEase.Contracts", "ContactEase.Contracts\ContactEase.Contracts.csproj", "{650F0CDD-D6A9-425B-8662-C9BFC8680178}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactEase.Infrastructure", "ContactEase.Infrastructure\ContactEase.Infrastructure.csproj", "{EBFE9A53-4E6B-4C04-B74C-8C2C3470F5C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactEase.Test.Domain", "ContactEase.Test.Domain\ContactEase.Test.Domain.csproj", "{EA5306EA-944A-446D-9967-7F9E58A10F07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD5D0C62-07BC-45E0-ACAA-8C829B9C6BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5D0C62-07BC-45E0-ACAA-8C829B9C6BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5D0C62-07BC-45E0-ACAA-8C829B9C6BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5D0C62-07BC-45E0-ACAA-8C829B9C6BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF97A1E-BDCC-4FBF-B01B-7C06F61C0886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF97A1E-BDCC-4FBF-B01B-7C06F61C0886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF97A1E-BDCC-4FBF-B01B-7C06F61C0886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF97A1E-BDCC-4FBF-B01B-7C06F61C0886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E776B00-0667-46C1-99F8-7197D53DBCA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E776B00-0667-46C1-99F8-7197D53DBCA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E776B00-0667-46C1-99F8-7197D53DBCA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E776B00-0667-46C1-99F8-7197D53DBCA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{650F0CDD-D6A9-425B-8662-C9BFC8680178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650F0CDD-D6A9-425B-8662-C9BFC8680178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650F0CDD-D6A9-425B-8662-C9BFC8680178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650F0CDD-D6A9-425B-8662-C9BFC8680178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBFE9A53-4E6B-4C04-B74C-8C2C3470F5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFE9A53-4E6B-4C04-B74C-8C2C3470F5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFE9A53-4E6B-4C04-B74C-8C2C3470F5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFE9A53-4E6B-4C04-B74C-8C2C3470F5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5306EA-944A-446D-9967-7F9E58A10F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5306EA-944A-446D-9967-7F9E58A10F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5306EA-944A-446D-9967-7F9E58A10F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5306EA-944A-446D-9967-7F9E58A10F07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA35E66B-1184-4932-8C07-08BEEC8704EE}
+	EndGlobalSection
+EndGlobal

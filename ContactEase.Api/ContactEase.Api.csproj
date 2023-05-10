@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ContactEase.Application\ContactEase.Application.csproj" />
+    <ProjectReference Include="..\ContactEase.Contracts\ContactEase.Contracts.csproj" />
+    <ProjectReference Include="..\ContactEase.Infrastructure\ContactEase.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
