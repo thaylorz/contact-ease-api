@@ -1,6 +1,4 @@
-<div align="center">
-  [![Deploy para o Azure](https://github.com/thaylorz/contact-ease-api/actions/workflows/azure-deploy.yml/badge.svg)](https://github.com/thaylorz/contact-ease-api/actions/workflows/azure-deploy.yml)
-</div>
+[![Deploy para o Azure](https://github.com/thaylorz/contact-ease-api/actions/workflows/azure-deploy.yml/badge.svg)](https://github.com/thaylorz/contact-ease-api/actions/workflows/azure-deploy.yml)
 
 O projeto foi desenvolvido para uma vaga de emprego com o objetivo de criar uma API REST para armazenar pessoas e seus contatos. Com a documentação disponível no link **[Documentação](https://contacteaseapi.azurewebsites.net/swagger/index.html)**.
 
