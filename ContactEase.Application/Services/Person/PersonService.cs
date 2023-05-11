@@ -59,7 +59,12 @@ public class PersonService : IPersonServices
             return PersonErrors.NotFound;
         }
 
-        person.Update(name, nickname, notes);
+        var result = person.Update(name, nickname, notes);
+
+        if(result.IsError)
+        {
+            return result;
+        }
 
         _personRepository.Edit(person);
 
