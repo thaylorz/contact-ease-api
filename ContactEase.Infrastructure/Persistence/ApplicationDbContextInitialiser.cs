@@ -44,33 +44,38 @@ public class ApplicationDbContextInitialiser
 
             await _context.Person.AddRangeAsync(people);
 
-            var contacts = people.SelectMany(person => new List<Contact>
+            var contacts = people.SelectMany(person =>
             {
-                Contact.Create(personId: person.Id, type: "Telefone", value: $"48991225879").Value,
-                Contact.Create(personId: person.Id, type: "E-mail", value: $"{person.Name}@exemplo.com").Value,
-                Contact.Create(personId: person.Id, type: "Endereço", value: $"Rua Exemplo, 123").Value,
-                Contact.Create(personId: person.Id, type: "LinkedIn", value: $"linkedin.com/in/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Facebook", value: $"facebook.com/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Instagram", value: $"instagram.com/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Skype", value: $"{person.Name}.skype").Value,
-                Contact.Create(personId: person.Id, type: "Telegram", value: $"@{person.Name}_telegram").Value,
-                Contact.Create(personId: person.Id, type: "Whatsapp", value: $"+5511999999999").Value,
-                Contact.Create(personId: person.Id, type: "Twitter", value: $"@{person.Name}_twitter").Value,
-                Contact.Create(personId: person.Id, type: "Discord", value: $"{person.Name}#1234").Value,
-                Contact.Create(personId: person.Id, type: "Twitch", value: $"twitch.tv/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Reddit", value: $"reddit.com/user/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Github", value: $"github.com/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Stack Overflow", value: $"stackoverflow.com/users/1234567/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Discord", value: $"{person.Name}#1234").Value,
-                Contact.Create(personId: person.Id, type: "Medium", value: $"medium.com/@{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Quora", value: $"quora.com/profile/{person.Name}-Oliveira").Value,
-                Contact.Create(personId: person.Id, type: "AngelList", value: $"angel.co/u/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Dribbble", value: $"dribbble.com/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Behance", value: $"behance.net/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "YouTube", value: $"youtube.com/user/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Vimeo", value: $"vimeo.com/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Pinterest", value: $"pinterest.com/{person.Name}").Value,
-                Contact.Create(personId: person.Id, type: "Snapchat", value: $"snapchat.com/add/{person.Name}").Value,
+                var personName = person.Name.ToLower().Replace(" ", "-");
+
+                return new List<Contact>
+                {
+                    Contact.Create(personId: person.Id, type: "Telefone", value: $"48991225879").Value,
+                    Contact.Create(personId: person.Id, type: "E-mail", value: $"{personName}@exemplo.com").Value,
+                    Contact.Create(personId: person.Id, type: "Endereço", value: $"Rua Exemplo, 123").Value,
+                    Contact.Create(personId: person.Id, type: "LinkedIn", value: $"linkedin.com/in/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Facebook", value: $"facebook.com/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Instagram", value: $"instagram.com/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Skype", value: $"{personName}.skype").Value,
+                    Contact.Create(personId: person.Id, type: "Telegram", value: $"@{personName}_telegram").Value,
+                    Contact.Create(personId: person.Id, type: "Whatsapp", value: $"+5511999999999").Value,
+                    Contact.Create(personId: person.Id, type: "Twitter", value: $"@{personName}_twitter").Value,
+                    Contact.Create(personId: person.Id, type: "Discord", value: $"{personName}#1234").Value,
+                    Contact.Create(personId: person.Id, type: "Twitch", value: $"twitch.tv/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Reddit", value: $"reddit.com/user/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Github", value: $"github.com/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Stack Overflow", value: $"stackoverflow.com/users/1234567/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Discord", value: $"{personName}#1234").Value,
+                    Contact.Create(personId: person.Id, type: "Medium", value: $"medium.com/@{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Quora", value: $"quora.com/profile/{personName}-Oliveira").Value,
+                    Contact.Create(personId: person.Id, type: "AngelList", value: $"angel.co/u/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Dribbble", value: $"dribbble.com/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Behance", value: $"behance.net/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "YouTube", value: $"youtube.com/user/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Vimeo", value: $"vimeo.com/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Pinterest", value: $"pinterest.com/{personName}").Value,
+                    Contact.Create(personId: person.Id, type: "Snapchat", value: $"snapchat.com/add/{personName}").Value,
+                };
             });
 
             _context.Contact.AddRange(contacts);
