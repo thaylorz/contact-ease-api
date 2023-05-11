@@ -20,9 +20,9 @@ public class ContacteService : IContactService
         _cancellationToken = new CancellationToken();
     }
 
-    public ErrorOr<Contact> Create(Guid personId, string type, string value)
+    public async Task<ErrorOr<Contact>> Create(Guid personId, string type, string value)
     {
-        var person = _personRepository.GetById(personId).Result;
+        var person = await _personRepository.GetById(personId);
 
         if(person is null)
         {
@@ -37,22 +37,22 @@ public class ContacteService : IContactService
             return result;
         }
 
-        _contactRepository.Add(contact);
-        _contactRepository.Save(_cancellationToken);
+        await _contactRepository.Add(contact);
+        await _contactRepository.Save(_cancellationToken);
 
         return result;
     }
 
-    public IEnumerable<Contact> GetAll(Guid personId)
+    public async Task<IEnumerable<Contact>> GetAll(Guid personId)
     {
-        var contacts = _contactRepository.GetAllPersonContacts(personId).Result;
+        var contacts = await _contactRepository.GetAllPersonContacts(personId);
 
         return contacts;
     }
 
-    public ErrorOr<Contact> Get(Guid id)
+    public async Task<ErrorOr<Contact>> Get(Guid id)
     {
-        var contact = _contactRepository.GetById(id).Result;
+        var contact = await _contactRepository.GetById(id);
 
         if(contact is null)
         {
@@ -62,7 +62,7 @@ public class ContacteService : IContactService
         return contact;
     }
 
-    public ErrorOr<Contact> Update(Guid id, string type, string value)
+    public async Task<ErrorOr<Contact>> Update(Guid id, string type, string value)
     {
         var contact = _contactRepository.GetById(id).Result;
 
@@ -79,22 +79,23 @@ public class ContacteService : IContactService
         }
 
         _contactRepository.Edit(contact);
-        _contactRepository.Save(_cancellationToken);
+
+        await _contactRepository.Save(_cancellationToken);
 
         return contact;
     }
 
-    public ErrorOr<Deleted> Delete(Guid id)
+    public async Task<ErrorOr<Deleted>> Delete(Guid id)
     {
-        var contact = _contactRepository.GetById(id).Result;
+        var contact = await _contactRepository.GetById(id);
 
         if(contact is null)
         {
             return ContactErrors.NotFound;
         }
 
-        _contactRepository.Delete(contact);
-        _contactRepository.Save(_cancellationToken);
+        await _contactRepository.Delete(contact);
+        await _contactRepository.Save(_cancellationToken);
 
         return Result.Deleted;
     }

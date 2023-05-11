@@ -16,7 +16,7 @@ public class PersonService : IPersonServices
         _cancellationToken = new CancellationToken();
     }
 
-    public ErrorOr<Person> Create(string name, string nickname, string notes)
+    public async Task<ErrorOr<Person>> Create(string name, string nickname, string notes)
     {
         var result = Person.Create(name, nickname, notes);
         var person = result.Value;
@@ -26,21 +26,21 @@ public class PersonService : IPersonServices
             return result;
         }
 
-        _personRepository.Add(person);
-        _personRepository.Save(_cancellationToken);
+        await _personRepository.Add(person);
+        await _personRepository.Save(_cancellationToken);
 
         return result;
     }
 
-    public IEnumerable<Person> GetAll()
+    public async Task<IEnumerable<Person>> GetAll()
     {
-        var persons = _personRepository.GetAll().Result;
+        var persons = await _personRepository.GetAll();
         return persons;
     }
 
-    public ErrorOr<Person> Get(Guid id)
+    public async Task<ErrorOr<Person>> Get(Guid id)
     {
-        var person = _personRepository.GetById(id).Result;
+        var person = await _personRepository.GetById(id);
 
         if(person is null)
         {
@@ -50,9 +50,9 @@ public class PersonService : IPersonServices
         return person;
     }
 
-    public ErrorOr<Person> Update(Guid id, string name, string nickname, string notes)
+    public async Task<ErrorOr<Person>> Update(Guid id, string name, string nickname, string notes)
     {
-        var person = _personRepository.GetById(id).Result;
+        var person = await _personRepository.GetById(id);
 
         if(person is null)
         {
@@ -62,22 +62,23 @@ public class PersonService : IPersonServices
         person.Update(name, nickname, notes);
 
         _personRepository.Edit(person);
-        _personRepository.Save(_cancellationToken);
+
+        await _personRepository.Save(_cancellationToken);
 
         return person;
     }
 
-    public ErrorOr<Deleted> Delete(Guid id)
+    public async Task<ErrorOr<Deleted>> Delete(Guid id)
     {
-        var person = _personRepository.GetById(id).Result;
+        var person = await _personRepository.GetById(id);
 
         if(person is null)
         {
             return PersonErrors.NotFound;
         }
 
-        _personRepository.Delete(person);
-        _personRepository.Save(_cancellationToken);
+        await _personRepository.Delete(person);
+        await _personRepository.Save(_cancellationToken);
 
         return Result.Deleted;
     }
