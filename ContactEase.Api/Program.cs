@@ -5,6 +5,9 @@ using ContactEase.Infrastructure.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+
     builder.Services.AddApplicationServices();
     builder.Services.AddInfrastructureServices();
 }
@@ -24,6 +27,10 @@ var app = builder.Build();
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
     });
+
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
 
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
