@@ -22,7 +22,7 @@ var app = builder.Build();
         .WithOrigins(
             "http://localhost:3000", 
             "https://localhost:3000",
-            "https://contact-ease-web-thaylorz.vercel.app/")
+            "https://contact-ease-web-thaylorz.vercel.app")
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials());
