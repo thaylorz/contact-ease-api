@@ -18,14 +18,12 @@ var app = builder.Build();
         await initialiser.SeedAsync();
     }
 
-    app.UseCors(builder => builder
-        .WithOrigins(
-            "http://localhost:3000", 
-            "https://localhost:3000",
-            "https://contact-ease-web-thaylorz.vercel.app")
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials());
+    app.UseCors(builder =>
+    {
+        builder.AllowAnyOrigin();
+        builder.AllowAnyHeader();
+        builder.AllowAnyMethod();
+    });
 
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
